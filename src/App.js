@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Main from './component/main/Main';
+import AddList from './component/guestbook/AddList';
+import NotFound from './component/error/NotFound';
+import Delete from './component/guestbook/Delete';
+
+
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Main/>} />
+                <Route path="/guestbook/addList" element={<AddList/>} />
+                <Route path="/NotFound" element={<NotFound/>} />
+                <Route path="/guestbook/delete" element={<Delete/>} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
