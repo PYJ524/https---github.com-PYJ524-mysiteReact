@@ -1,5 +1,8 @@
+//Link를 쓰려면 해당 코드 임포트
+import {Link} from 'react-router-dom';
 
-function AddListItems() {
+
+function AddListItems(props) {
     return (
         <table className="guestRead">
             <colgroup>
@@ -10,13 +13,13 @@ function AddListItems() {
             </colgroup>
             <tbody>
                 <tr>
-                    <td>1234555</td>
-                    <td>이정재</td>
-                    <td>2020-03-03 12:12:12</td>
-                    <td><a href="/guestbook/delete">[삭제]</a></td>
+                    <td>{props.guestbookVo.no}</td>
+                    <td>{props.guestbookVo.name}</td>
+                    <td>{props.guestbookVo.regDate}</td>
+                    <td><Link to="/guestbook/delete">[삭제]</Link></td>
                 </tr>
                 <tr>
-                    <td colSpan="4" className="text-left">방명록 글입니다. 방명록 글입니다.</td>
+                    <td colSpan="4" className="text-left">{props.guestbookVo.content}</td>
                 </tr>
             </tbody>
         </table>
